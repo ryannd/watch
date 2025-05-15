@@ -5,7 +5,12 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "paths": {
+      "@/*": ["./*"],
+      "@prisma/client": ["@repo/db/client/*"]
+    },
+    "baseUrl": "."
   },
   "include": [
     "**/*.ts",
