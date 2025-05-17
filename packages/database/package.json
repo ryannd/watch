@@ -1,22 +1,27 @@
 {
-  "name": "@repo/database",
-  "version": "0.0.0",
-  "private": true,
-  "main": "dist/index.js",
-  "scripts": {
-    "dev": "tsc --watch",
-    "build": "tsc",
-    "db:check": "drizzle-kit check",
-    "db:generate": "drizzle-kit generate",
-    "db:migrate": "drizzle-kit migrate"
-  },
-  "devDependencies": {
-    "drizzle-kit": "^0.31.1",
-    "typescript": "^5.8.3"
-  },
-  "dependencies": {
-    "dotenv": "^16.5.0",
-    "postgres": "^3.4.5",
-    "drizzle-orm": "^0.43.1"
-  }
+    "name": "@repo/database",
+    "version": "0.0.0",
+    "private": true,
+    "main": "dist/index.js",
+    "scripts": {
+        "dev": "tsc --watch",
+        "build": "tsc",
+        "format": "prettier --write \"**/*.{ts,tsx,js,md}\"",
+        "db:check": "drizzle-kit check",
+        "db:generate": "drizzle-kit generate",
+        "db:migrate": "drizzle-kit migrate",
+        "lint": "eslint --fix \"**/*.ts*\""
+    },
+    "devDependencies": {
+        "drizzle-kit": "^0.31.1",
+        "typescript": "^5.8.3",
+        "@repo/eslint-config": "workspace:*",
+        "@repo/typescript-config": "workspace:*",
+        "@repo/prettier-config": "workspace:*"
+    },
+    "dependencies": {
+        "dotenv": "^16.5.0",
+        "postgres": "^3.4.5",
+        "drizzle-orm": "^0.43.1"
+    }
 }

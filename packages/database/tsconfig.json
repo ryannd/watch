@@ -1,9 +1,9 @@
 {
-  "extends": "../typescript-config/base.json",
-  "compilerOptions": {
-    "module": "NodeNext",
-    "target": "ES2022",
-    "outDir": "./dist"
-  },
-  "exclude": ["dist", "node_modules"]
+    "extends": "../typescript-config/base.json",
+    "compilerOptions": {
+        "module": "NodeNext",
+        "target": "ES2022",
+        "outDir": "./dist"
+    },
+    "exclude": ["dist", "node_modules"]
 }
