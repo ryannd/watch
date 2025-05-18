@@ -9,7 +9,7 @@
         "format": "prettier --write \"**/*.{ts,tsx,js,md}\"",
         "db:check": "drizzle-kit check",
         "db:generate": "drizzle-kit generate",
-        "db:migrate": "drizzle-kit migrate",
+        "db:push": "drizzle-kit push",
         "lint": "eslint --fix \"**/*.ts*\""
     },
     "devDependencies": {

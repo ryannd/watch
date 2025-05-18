@@ -14,10 +14,10 @@ app.use(
     }),
 );
 
-app.all('/api/auth/{*any}', toNodeHandler(auth))
+app.all('/api/auth/{*any}', toNodeHandler(auth));
 
-app.use(express.json())
+app.use(express.json());
 
 app.listen(port, () => {
-    console.log(`Server running on port ${port}`)
+    console.log(`Server running on port ${port}`);
 });

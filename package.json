@@ -11,7 +11,7 @@
         "check-types": "turbo run check-types --",
         "db:check": "turbo run db:check",
         "db:generate": "turbo run db:generate",
-        "db:migrate": "turbo run db:migrate",
+        "db:push": "turbo run db:push",
         "delete-node-modules": "pnpm -r exec rm -rf node_modules"
     },
     "devDependencies": {
