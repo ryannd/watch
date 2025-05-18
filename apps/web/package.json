@@ -12,8 +12,11 @@
         "format": "prettier --write \"**/*.{ts,tsx,js,json,md}\""
     },
     "dependencies": {
+        "@repo/ui": "workspace:*",
+        "lucide-react": "^0.475.0",
         "better-auth": "^1.2.8",
         "next": "^15.3.0",
+        "next-themes": "^0.4.4",
         "react": "^19.1.0",
         "react-dom": "^19.1.0"
     },
