@@ -1,33 +1,33 @@
 {
-  "name": "watch",
-  "private": true,
-  "scripts": {
-    "prepare": "husky",
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint",
-    "test": "turbo run test",
-    "format": "turbo run format",
-    "check-types": "turbo run check-types",
-    "db:check": "turbo run db:check",
-    "db:generate": "turbo run db:generate",
-    "db:migrate": "turbo run db:migrate",
-    "delete-node-modules": "pnpm -r exec rm -rf node_modules"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^19.6.1",
-    "@commitlint/config-conventional": "^19.6.0",
-    "@repo/prettier-config":"workspace:*",
-    "commitizen": "^4.3.1",
-    "cz-emoji": "^1.3.2-canary.2",
-    "husky": "^9.1.7",
-    "lint-staged": "^16.0.0",
-    "prettier": "^3.5.3",
-    "turbo": "^2.5.3",
-    "typescript": "5.8.2"
-  },
-  "packageManager": "pnpm@9.0.0",
-  "engines": {
-    "node": ">=18"
-  }
+    "name": "watch",
+    "private": true,
+    "scripts": {
+        "prepare": "husky",
+        "build": "turbo run build",
+        "dev": "turbo run dev",
+        "lint": "turbo run lint --",
+        "test": "turbo run test",
+        "format": "turbo run format --",
+        "check-types": "turbo run check-types --",
+        "db:check": "turbo run db:check",
+        "db:generate": "turbo run db:generate",
+        "db:migrate": "turbo run db:migrate",
+        "delete-node-modules": "pnpm -r exec rm -rf node_modules"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^19.6.1",
+        "@commitlint/config-conventional": "^19.6.0",
+        "@repo/prettier-config": "workspace:*",
+        "commitizen": "^4.3.1",
+        "cz-emoji": "^1.3.2-canary.2",
+        "husky": "^9.1.7",
+        "lint-staged": "^16.0.0",
+        "prettier": "^3.5.3",
+        "turbo": "^2.5.3",
+        "typescript": "5.8.2"
+    },
+    "packageManager": "pnpm@9.0.0",
+    "engines": {
+        "node": ">=18"
+    }
 }

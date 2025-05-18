@@ -1,13 +1,15 @@
  {
     "/apps/**/*.{ts,tsx}": [
-        "prettier --write",
-        "eslint --fix"
+        "pnpm run lint",
+        "pnpm run check-types",
+        "pnpm run format"
     ],
     "/packages/**/*.{ts,tsx}": [
-        "prettier --write",
-        "eslint --fix"
+        "pnpm run lint",
+        "pnpm run check-types",
+        "pnpm run format"
     ],
     "*.json": [
-        "prettier --write"
+        "pnpm run format"
     ]
   }
