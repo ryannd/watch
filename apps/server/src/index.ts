@@ -3,7 +3,7 @@ import cors from 'cors';
 import { toNodeHandler } from 'better-auth/node';
 import { auth } from './auth';
 
-const app = express()
+const app = express();
 const port = 3001;
 
 app.use(
@@ -14,10 +14,10 @@ app.use(
     }),
 );
 
-app.all('/api/auth/{*any}', toNodeHandler(auth));
+app.all('/api/auth/{*any}', toNodeHandler(auth))
 
-app.use(express.json());
+app.use(express.json())
 
 app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
-})
+    console.log(`Server running on port ${port}`)
+});
