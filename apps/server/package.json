@@ -5,7 +5,6 @@
     "scripts": {
         "dev": "concurrently \"tsc --watch\" \"nodemon dist/index.js\"",
         "build": "echo 'Add build script here'",
-        "test": "echo 'Add test script here'",
         "lint": "eslint --fix",
         "format": "prettier --write \"**/*.{ts,tsx,js,json,md}\""
     },

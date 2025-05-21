@@ -23,12 +23,19 @@ type SignUpInputs = {
 };
 
 export default function SignUpForm() {
-    const form = useForm<SignUpInputs>();
+    const form = useForm<SignUpInputs>({
+        defaultValues: {
+            email: '',
+            password: '',
+            name: '',
+        },
+    });
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
 
     const onSubmit: SubmitHandler<SignUpInputs> = async (formData) => {
         const { email, name, password } = formData;
+        setIsLoading(true);
 
         await authClient.signUp.email(
             {
@@ -37,9 +44,6 @@ export default function SignUpForm() {
                 name,
             },
             {
-                onRequest: () => {
-                    setIsLoading(true);
-                },
                 onSuccess: () => {
                     router.push('/');
                 },

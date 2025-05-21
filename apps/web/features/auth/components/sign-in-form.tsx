@@ -20,21 +20,25 @@ type SignInInputs = {
 };
 
 export default function SignInForm() {
-    const form = useForm<SignInInputs>();
+    const form = useForm<SignInInputs>({
+        defaultValues: {
+            email: '',
+            password: '',
+        },
+    });
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
 
     const onSubmit: SubmitHandler<SignInInputs> = async (formData) => {
         const { email, password } = formData;
+        setIsLoading(true);
+
         await authClient.signIn.email(
             {
                 email,
                 password,
             },
             {
-                onRequest: () => {
-                    setIsLoading(true);
-                },
                 onSuccess: () => {
                     router.push('/');
                 },
