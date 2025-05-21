@@ -1,23 +1,33 @@
-import express from 'express';
-import cors from 'cors';
-import { toNodeHandler } from 'better-auth/node';
-import { auth } from './auth';
+import { serve } from '@hono/node-server'
+import { Hono } from 'hono'
+import { auth } from './auth.js'
+import { cors } from "hono/cors";
 
-const app = express();
-const port = 3001;
+const app = new Hono()
 
 app.use(
-    cors({
-        origin: 'http://localhost:3000',
-        methods: ['GET', 'POST', 'PUT', 'DELETE'],
-        credentials: true,
-    }),
+	"*",
+	cors({
+		origin: "http://localhost:3000",
+		allowHeaders: ["Content-Type", "Authorization"],
+		allowMethods: ["POST", "GET", "OPTIONS"],
+		exposeHeaders: ["Content-Length"],
+		maxAge: 600,
+		credentials: true,
+	}),
 );
 
-app.all('/api/auth/{*any}', toNodeHandler(auth));
+app.get('/', (c) => {
+  return c.text('Hello Hono!')
+})
 
-app.use(express.json());
-
-app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
+app.on(["POST", "GET"], "/api/auth/*", (c) => {
+	return auth.handler(c.req.raw);
 });
+
+serve({
+  fetch: app.fetch,
+  port: 3001
+}, (info) => {
+  console.log(`Server is running on http://localhost:${info.port}`)
+})
