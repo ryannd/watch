@@ -50,6 +50,9 @@ importers:
       better-auth:
         specifier: ^1.2.8
         version: 1.2.8
+      dotenv:
+        specifier: ^16.5.0
+        version: 16.5.0
       hono:
         specifier: ^4.7.10
         version: 4.7.10

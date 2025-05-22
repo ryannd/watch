@@ -1,9 +1,13 @@
 import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
 import { cors } from "hono/cors";
-
+import dotenv from 'dotenv';
 import auth from '@routes/auth.js'
+import search from '@routes/search.js'
+
 const app = new Hono().basePath('/api')
+
+dotenv.config();
 
 app.use(
 	"*",
@@ -22,6 +26,7 @@ app.get('/', (c) => {
 })
 
 app.route('/auth', auth)
+app.route('/search', search)
 
 serve({
   fetch: app.fetch,
