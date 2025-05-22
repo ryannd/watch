@@ -1,9 +1,9 @@
 import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
-import { auth } from './auth.js'
 import { cors } from "hono/cors";
 
-const app = new Hono()
+import auth from '@routes/auth.js'
+const app = new Hono().basePath('/api')
 
 app.use(
 	"*",
@@ -21,9 +21,7 @@ app.get('/', (c) => {
   return c.text('Hello Hono!')
 })
 
-app.on(["POST", "GET"], "/api/auth/*", (c) => {
-	return auth.handler(c.req.raw);
-});
+app.route('/auth', auth)
 
 serve({
   fetch: app.fetch,
