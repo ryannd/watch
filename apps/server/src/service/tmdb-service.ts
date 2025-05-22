@@ -6,10 +6,12 @@ export default class TmdbService {
     constructor() {}
 
     getSearch(
-        type = 'multi',
+        type: string | undefined,
         searchTerm: string,
         page: string = '1'
     ) {
+        if(type === '' || !type) type = 'multi';
+
         const requestUrl = new URL(`${this.apiBaseUrl}/search/${type}`);
         requestUrl.searchParams.append("query", searchTerm);
         requestUrl.searchParams.append("include_adult", 'false');
