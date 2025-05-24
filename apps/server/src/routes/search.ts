@@ -17,13 +17,14 @@ app.get('/', async (c) => {
     const parsedResponse = await tmdbResponse.json() as TmdbSearchResponse;
     const serializedData: SearchResponse = {
         page: parsedResponse.page,
-        results: parsedResponse.results.map((result) => {
+        results: parsedResponse.results.filter((result) => result.media_type !== 'person').map((result) => {
         return {
             backgroundImage: result.backdrop_path,
             mediaType: result.media_type,
             posterImage: result.poster_path,
-            releaseDate: result.release_date,
-            title: result.title
+            releaseDate: result.release_date || result.first_air_date,
+            title: result.title || result.name,
+            id: result.id
         }
     }),
         totalPages: parsedResponse.total_pages,
