@@ -1,6 +1,6 @@
 'use client';
 
-import { authClient } from '@/features/auth/auth-client';
+import { authClient } from '@/features/auth/lib/auth-client';
 import { Button } from '@repo/ui/components/button';
 import {
     FormField,

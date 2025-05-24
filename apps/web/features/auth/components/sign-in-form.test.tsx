@@ -1,4 +1,4 @@
-import { authClient } from '@/features/auth/auth-client';
+import { authClient } from '@/features/auth/lib/auth-client';
 import SignInForm from '@/features/auth/components/sign-in-form';
 import {
     act,

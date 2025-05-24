@@ -11,7 +11,8 @@
         "jsxImportSource": "hono/jsx",
         "outDir": "./dist",
         "paths": {
-            "@*": ["*"]
+            "@*": ["*"],
+            "types/*": ["./types/*"]
         },
         "baseUrl": "./src"
     },

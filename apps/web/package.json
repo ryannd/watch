@@ -14,13 +14,15 @@
     },
     "dependencies": {
         "@repo/ui": "workspace:*",
+        "@repo/types": "workspace:*",
         "better-auth": "^1.2.8",
         "lucide-react": "^0.475.0",
         "next": "^15.3.0",
         "next-themes": "^0.4.4",
         "react": "^19.1.0",
         "react-dom": "^19.1.0",
-        "react-hook-form": "^7.56.4"
+        "react-hook-form": "^7.56.4",
+        "swr": "^2.3.3"
     },
     "devDependencies": {
         "@repo/eslint-config": "workspace:*",
