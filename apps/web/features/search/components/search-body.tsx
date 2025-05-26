@@ -18,7 +18,7 @@ export default function SearchBody({
         <ScrollArea className="w-full min-h-1/2 h-1/2 rounded-md border">
             {isLoading || !results || error
                 ? Array.from({ length: 8 }).map((_, idx) => (
-                      <Skeleton key={idx} />
+                      <Skeleton data-testid="skeleton" key={idx} />
                   ))
                 : results.map((result) => {
                       return <SearchResult result={result} key={result.id} />;

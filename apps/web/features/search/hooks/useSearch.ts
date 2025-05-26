@@ -10,8 +10,8 @@ export default function useSearch() {
     const [queryDebounced, setQueryDebounced] = useState('');
     const [query, setQuery] = useState('');
 
-     const changePage = (newPage: number) => {
-            setPage(newPage);
+    const changePage = (newPage: number) => {
+        setPage(newPage);
     };
 
     const onQueryChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -29,15 +29,14 @@ export default function useSearch() {
     );
 
     useEffect(() => {
-            const handler = setTimeout(() => {
-                setQueryDebounced(query);
-            }, 500);
-    
-            return () => {
-                clearTimeout(handler);
-            };
-        }, [query]);
-    
+        const handler = setTimeout(() => {
+            setQueryDebounced(query);
+        }, 500);
+
+        return () => {
+            clearTimeout(handler);
+        };
+    }, [query]);
 
     return {
         data,
@@ -47,6 +46,6 @@ export default function useSearch() {
         currentPage: page,
         onTypeChange,
         onQueryChange,
-        query
+        query,
     };
 }

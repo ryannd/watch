@@ -1,5 +1,5 @@
 import { SearchResult as SearchResultType } from '@repo/types';
-import { Card, CardHeader } from '@repo/ui/components/card';
+import { Card, CardHeader, CardTitle } from '@repo/ui/components/card';
 
 interface SearchResultProps {
     result: SearchResultType;
@@ -8,7 +8,9 @@ interface SearchResultProps {
 export default function SearchResult({ result }: SearchResultProps) {
     return (
         <Card className="rounded-none">
-            <CardHeader>{result.title}</CardHeader>
+            <CardHeader>
+                <CardTitle>{result.title}</CardTitle>
+            </CardHeader>
         </Card>
     );
 }
