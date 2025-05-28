@@ -28,7 +28,7 @@ export default function SearchInput({
                 </SelectTrigger>
                 <SelectContent>
                     <SelectItem value="multi">Multi</SelectItem>
-                    <SelectItem value="show">Show</SelectItem>
+                    <SelectItem value="tv">TV</SelectItem>
                     <SelectItem value="movie">Movie</SelectItem>
                 </SelectContent>
             </Select>

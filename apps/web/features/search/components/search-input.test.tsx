@@ -43,10 +43,10 @@ describe('SearchInput', () => {
         const select = screen.getByRole('combobox');
         fireEvent.click(select);
 
-        const option = await waitFor(() => screen.getByText('Show'));
+        const option = await waitFor(() => screen.getByText('TV'));
         await userEvent.click(option);
         expect(mockOnTypeChange).toHaveBeenCalledTimes(1);
-        expect(mockOnTypeChange).toHaveBeenCalledWith('show');
+        expect(mockOnTypeChange).toHaveBeenCalledWith('tv');
     });
 
     it('updates the input value when query prop changes', () => {

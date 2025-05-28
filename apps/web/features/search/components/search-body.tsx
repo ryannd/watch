@@ -15,7 +15,7 @@ export default function SearchBody({
     error,
 }: SearchBodyProps) {
     return (
-        <ScrollArea className="w-full min-h-1/2 h-1/2 rounded-md border">
+        <ScrollArea className="w-full min-h-3/4 h-3/4 rounded-md border p-5 gap-2">
             {isLoading || !results || error
                 ? Array.from({ length: 8 }).map((_, idx) => (
                       <Skeleton data-testid="skeleton" key={idx} />

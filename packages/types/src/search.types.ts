@@ -12,4 +12,5 @@ export type SearchResult = {
     mediaType: string;
     releaseDate: string;
     id: number;
+    description: string;
 }

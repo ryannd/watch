@@ -78,7 +78,7 @@ export default function SearchPagination({
             <Pagination>
                 <PaginationContent>
                     <PaginationItem>
-                        <PaginationPrevious href="#" />
+                        <PaginationPrevious href="#" onClick={() => { if (page > 1) changePage(page - 1)}} />
                     </PaginationItem>
                     {paginationItems.map((item, index) => {
                         if (item === 'ellipsis') {
@@ -106,7 +106,7 @@ export default function SearchPagination({
                     })}
 
                     <PaginationItem>
-                        <PaginationNext href="#" />
+                        <PaginationNext href="#" onClick={() => {if(page < totalPages) changePage(page + 1)}} />
                     </PaginationItem>
                 </PaginationContent>
             </Pagination>
