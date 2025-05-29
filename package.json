@@ -12,6 +12,7 @@
         "db:check": "turbo run db:check",
         "db:generate": "turbo run db:generate",
         "db:push": "turbo run db:push",
+        "db:drop": "turbo run db:drop",
         "delete-node-modules": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +"
     },
     "devDependencies": {

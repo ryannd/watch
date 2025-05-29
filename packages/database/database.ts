@@ -11,4 +11,5 @@ export const db = drizzle({
         pass: process.env.DATABASE_PASSWORD,
     },
     schema,
+    casing: 'snake_case',
 });

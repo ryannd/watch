@@ -1,5 +1,5 @@
 {
-    "id": "bb8584ae-07d5-46b1-b26b-04ea8edb5fb0",
+    "id": "7afcb545-1313-4cf1-91d4-54a731c9f174",
     "prevId": "44136281-84c7-419f-b0c5-fe41255d5cc0",
     "version": "7",
     "dialect": "postgresql",
@@ -331,8 +331,8 @@
                     "primaryKey": false,
                     "notNull": false
                 },
-                "releaseDate": {
-                    "name": "releaseDate",
+                "release_date": {
+                    "name": "release_date",
                     "type": "varchar(255)",
                     "primaryKey": false,
                     "notNull": false
@@ -373,14 +373,14 @@
                         "cycle": false
                     }
                 },
-                "seasonNumber": {
-                    "name": "seasonNumber",
+                "season_number": {
+                    "name": "season_number",
                     "type": "integer",
                     "primaryKey": false,
                     "notNull": true
                 },
-                "episodeCount": {
-                    "name": "episodeCount",
+                "episode_count": {
+                    "name": "episode_count",
                     "type": "integer",
                     "primaryKey": false,
                     "notNull": true
@@ -391,14 +391,14 @@
                     "primaryKey": false,
                     "notNull": true
                 },
-                "airDate": {
-                    "name": "airDate",
+                "air_date": {
+                    "name": "air_date",
                     "type": "varchar(255)",
                     "primaryKey": false,
                     "notNull": false
                 },
-                "mediaId": {
-                    "name": "mediaId",
+                "media_id": {
+                    "name": "media_id",
                     "type": "integer",
                     "primaryKey": false,
                     "notNull": false
@@ -415,7 +415,51 @@
         "public.entry": {
             "name": "entry",
             "schema": "",
-            "columns": {},
+            "columns": {
+                "id": {
+                    "name": "id",
+                    "type": "integer",
+                    "primaryKey": true,
+                    "notNull": true,
+                    "identity": {
+                        "type": "always",
+                        "name": "entry_id_seq",
+                        "schema": "public",
+                        "increment": "1",
+                        "startWith": "1",
+                        "minValue": "1",
+                        "maxValue": "2147483647",
+                        "cache": "1",
+                        "cycle": false
+                    }
+                },
+                "status": {
+                    "name": "status",
+                    "type": "status",
+                    "typeSchema": "public",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": "'planning'"
+                },
+                "season_progress": {
+                    "name": "season_progress",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false
+                },
+                "episode_progress": {
+                    "name": "episode_progress",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false
+                },
+                "media_id": {
+                    "name": "media_id",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false
+                }
+            },
             "indexes": {},
             "foreignKeys": {},
             "compositePrimaryKeys": {},
@@ -425,7 +469,13 @@
             "isRLSEnabled": false
         }
     },
-    "enums": {},
+    "enums": {
+        "public.status": {
+            "name": "status",
+            "schema": "public",
+            "values": ["planning", "watching", "completed"]
+        }
+    },
     "schemas": {},
     "sequences": {},
     "roles": {},

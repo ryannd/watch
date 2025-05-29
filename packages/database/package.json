@@ -10,6 +10,7 @@
         "db:check": "drizzle-kit check",
         "db:generate": "drizzle-kit generate",
         "db:push": "drizzle-kit push",
+        "db:drop": "drizzle-kit drop",
         "lint": "eslint --fix \"**/*.ts*\""
     },
     "devDependencies": {

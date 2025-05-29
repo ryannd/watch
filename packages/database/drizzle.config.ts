@@ -14,4 +14,5 @@ export default defineConfig({
         database: process.env.DATABASE_NAME || '',
         ssl: false,
     },
+    casing: 'snake_case',
 });
