@@ -6,7 +6,7 @@ describe('SearchResult', () => {
     it('renders the title from the result prop', () => {
         const mockResult: SearchResultType = {
             title: 'Test Title',
-            mediaType: 'tv'
+            mediaType: 'tv',
         } as SearchResultType;
         const { getByText } = render(<SearchResult result={mockResult} />);
         expect(getByText('Test Title')).toBeInTheDocument();
@@ -16,7 +16,7 @@ describe('SearchResult', () => {
         const mockResult: SearchResultType = {
             title: 'Test Title',
             description: 'Test Description',
-            mediaType: 'movie'
+            mediaType: 'movie',
         } as SearchResultType;
         const { getByText } = render(<SearchResult result={mockResult} />);
         expect(getByText('Test Description')).toBeInTheDocument();
@@ -26,7 +26,7 @@ describe('SearchResult', () => {
         const mockResult: SearchResultType = {
             title: 'Test Title',
             posterImage: 'http://example.com/poster.jpg',
-            mediaType: 'movie'
+            mediaType: 'movie',
         } as SearchResultType;
         const { getByAltText } = render(<SearchResult result={mockResult} />);
         const img = getByAltText('Test Title poster') as HTMLImageElement;
@@ -37,7 +37,7 @@ describe('SearchResult', () => {
     it('renders the mediaType badge in uppercase', () => {
         const mockResult: SearchResultType = {
             title: 'Test Title',
-            mediaType: 'anime'
+            mediaType: 'anime',
         } as SearchResultType;
         const { getByText } = render(<SearchResult result={mockResult} />);
         expect(getByText('ANIME')).toBeInTheDocument();
@@ -45,7 +45,7 @@ describe('SearchResult', () => {
 
     it('does not render the badge if mediaType is missing', () => {
         const mockResult: SearchResultType = {
-            title: 'Test Title'
+            title: 'Test Title',
         } as SearchResultType;
         const { queryByText } = render(<SearchResult result={mockResult} />);
         expect(queryByText('TV')).not.toBeInTheDocument();
