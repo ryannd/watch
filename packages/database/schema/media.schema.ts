@@ -1,6 +1,6 @@
 import { relations } from 'drizzle-orm';
 import { integer, varchar, pgTable } from 'drizzle-orm/pg-core';
-import { entry } from './entry-schema';
+import { entry } from './entry.schema';
 
 export const media = pgTable('media', {
     id: integer().primaryKey().generatedAlwaysAsIdentity(),

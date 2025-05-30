@@ -19,4 +19,18 @@ export default class TmdbService {
 
         return proxy(requestUrl, { headers: this.headers })
     }
+
+    getTv(
+        id: string
+    ) {
+        const requestUrl = new URL(`${this.apiBaseUrl}/tv/${id}`);
+        return proxy(requestUrl, { headers: this.headers })
+    }
+
+    getMovie(
+        id: string
+    ) {
+        const requestUrl = new URL(`${this.apiBaseUrl}/movie/${id}`);
+        return proxy(requestUrl, { headers: this.headers });
+    }
 }

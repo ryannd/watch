@@ -1,7 +1,7 @@
 import { relations } from 'drizzle-orm';
 import { pgEnum } from 'drizzle-orm/pg-core';
 import { pgTable, integer } from 'drizzle-orm/pg-core';
-import { media } from './media-schema';
+import { media } from './media.schema';
 
 export const statusEnum = pgEnum('status', [
     'planning',

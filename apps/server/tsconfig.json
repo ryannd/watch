@@ -3,6 +3,7 @@
     "compilerOptions": {
         "target": "ESNext",
         "module": "NodeNext",
+        "moduleResolution": "NodeNext",
         "strict": true,
         "verbatimModuleSyntax": true,
         "skipLibCheck": true,
@@ -16,5 +17,6 @@
         },
         "baseUrl": "./src"
     },
+    "include": ["src/**/*.ts", "src/**/*.tsx"],
     "exclude": ["node_modules"]
 }
