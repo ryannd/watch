@@ -8,7 +8,7 @@ export const media = pgTable('media', {
     poster: varchar({ length: 255 }),
     description: varchar({ length: 255 }),
     releaseDate: varchar({ length: 255 }),
-    source: varchar({ length: 255 }).notNull(),
+    source: varchar({ length: 255 }).notNull().unique(),
 });
 
 export const mediaRelations = relations(media, ({ many }) => ({

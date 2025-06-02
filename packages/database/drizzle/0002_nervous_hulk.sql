@@ -1,0 +1,1 @@
+ALTER TABLE "media" ADD CONSTRAINT "media_source_unique" UNIQUE("source");

@@ -1,4 +1,4 @@
-import TmdbService from "@service/tmdb-service.js"
+import TmdbService from "@service/tmdb.service.js"
 import type { TmdbMovieResponse, TmdbShowResponse } from "types/tmdb.js"
 import { Hono } from "hono"
 

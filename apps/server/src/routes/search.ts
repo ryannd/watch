@@ -1,5 +1,5 @@
 import type { SearchResponse, SearchResult } from "@repo/types";
-import TmdbService from "@service/tmdb-service.js";
+import TmdbService from "@service/tmdb.service.js";
 import type { TmdbSearchResponse } from "types/tmdb.js";
 import { Hono } from "hono";
 
