@@ -10,6 +10,7 @@ const mockResults: SearchResult[] = [
         posterImage: 'testposter',
         releaseDate: 'testrelease',
         title: 'testtitle1',
+        description: 'testdesc',
     },
     {
         backgroundImage: 'testbg',
@@ -18,6 +19,7 @@ const mockResults: SearchResult[] = [
         posterImage: 'testposter',
         releaseDate: 'testrelease',
         title: 'testtitle1',
+        description: 'testdesc',
     },
     {
         backgroundImage: 'testbg',
@@ -26,6 +28,7 @@ const mockResults: SearchResult[] = [
         posterImage: 'testposter',
         releaseDate: 'testrelease',
         title: 'testtitle1',
+        description: 'testdesc',
     },
     {
         backgroundImage: 'testbg',
@@ -34,6 +37,7 @@ const mockResults: SearchResult[] = [
         posterImage: 'testposter',
         releaseDate: 'testrelease',
         title: 'testtitle1',
+        description: 'testdesc',
     },
 ];
 

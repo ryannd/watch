@@ -2,7 +2,6 @@ import type { EntryDto } from "@dto/entry.dto.js";
 import { authLib } from "@lib/auth.js";
 import { db, entry, type NewEntry } from "@repo/database";
 import type MediaService from "@service/media.service.js";
-import { auth } from "hono/utils/basic-auth";
 
 export default class EntryService {
     private mediaService: MediaService;
@@ -19,6 +18,7 @@ export default class EntryService {
             userId: user.id
         }
         
-        return await db.insert(entry).values(newEntry);
+        const [inserted] = await db.insert(entry).values(newEntry).returning();
+        return inserted;
     }
 }

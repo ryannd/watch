@@ -16,7 +16,7 @@ export const entry = pgTable('entry', {
     status: statusEnum().default('planning'),
     seasonProgress: integer(),
     episodeProgress: integer(),
-    mediaId: integer(),
+    mediaId: integer().unique(),
     userId: text(),
 });
 

@@ -1,0 +1,1 @@
+ALTER TABLE "entry" ADD CONSTRAINT "entry_mediaId_unique" UNIQUE("media_id");

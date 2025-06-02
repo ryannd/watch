@@ -16,7 +16,6 @@ export default class MediaService {
                 const found = await this.find(`tmdb-movie-${id}`);
                 
                 if(found) {
-                    console.log('found')
                     return found;
                 } else {
                     const parsedResponse = await movieResponse.json() as TmdbMovieResponse;

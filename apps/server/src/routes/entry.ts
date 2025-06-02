@@ -17,7 +17,7 @@ const mediaService = new MediaService(tmdbService);
 const entryService = new EntryService(mediaService);
 
 app.post('/create', async (c) => {
-    const body = await c.req.json() as EntryDto;
+    const body = JSON.parse(await c.req.json()) as EntryDto;
     const user = c.get("user")
 	
     if (!user) {
