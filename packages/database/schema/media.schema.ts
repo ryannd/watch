@@ -2,6 +2,9 @@ import { relations } from 'drizzle-orm';
 import { integer, pgTable } from 'drizzle-orm/pg-core';
 import { entry } from './entry.schema';
 import { text } from 'drizzle-orm/pg-core';
+import { pgEnum } from 'drizzle-orm/pg-core';
+
+export const mediaTypeEnum = pgEnum('mediaType', ['tv', 'movie', 'unknown']);
 
 export const media = pgTable('media', {
     id: integer().primaryKey().generatedAlwaysAsIdentity(),
@@ -10,6 +13,7 @@ export const media = pgTable('media', {
     description: text(),
     releaseDate: text(),
     source: text().notNull().unique(),
+    mediaType: mediaTypeEnum().default('unknown'),
 });
 
 export const mediaRelations = relations(media, ({ many }) => ({

@@ -10,12 +10,15 @@ import { Badge } from '@repo/ui/components/badge';
 import { Button } from '@repo/ui/components/button';
 import { authClient } from '@/features/auth/lib/auth-client';
 import { Plus } from 'lucide-react';
+import { useSWRConfig } from 'swr';
+import fetchWithAuth from '@/lib/fetch-with-auth';
 
 interface SearchResultProps {
     result: SearchResultType;
+    inList: boolean;
 }
 
-export default function SearchResult({ result }: SearchResultProps) {
+export default function SearchResult({ result, inList }: SearchResultProps) {
     const onAdd = async () => {
         const dto: EntryDto = {
             id: result.id.toString(),
@@ -24,10 +27,10 @@ export default function SearchResult({ result }: SearchResultProps) {
             type: result.mediaType,
         };
 
-        await authClient.$fetch(
-            `${process.env.NEXT_PUBLIC_API_BASE_URL}/entry/create`,
-            { method: 'POST', body: JSON.stringify(dto) },
-        );
+        await fetchWithAuth(`/entry/create`, {
+            method: 'POST',
+            body: JSON.stringify(dto),
+        });
     };
 
     return (
@@ -54,9 +57,13 @@ export default function SearchResult({ result }: SearchResultProps) {
                     </CardHeader>
                 </div>
                 <CardFooter>
-                    <Button onClick={onAdd}>
-                        <Plus />
-                    </Button>
+                    {inList ? (
+                        <></>
+                    ) : (
+                        <Button onClick={onAdd}>
+                            <Plus />
+                        </Button>
+                    )}
                 </CardFooter>
             </div>
         </Card>

@@ -1,7 +1,9 @@
 import SearchResult from '@/features/search/components/search-result';
+import fetchWithAuth from '@/lib/fetch-with-auth';
 import { SearchResult as SearchResultType } from '@repo/types';
 import { ScrollArea } from '@repo/ui/components/scroll-area';
 import { Skeleton } from '@repo/ui/components/skeleton';
+import useSWR from 'swr';
 
 interface SearchBodyProps {
     results: SearchResultType[] | undefined;
@@ -14,6 +16,13 @@ export default function SearchBody({
     isLoading,
     error,
 }: SearchBodyProps) {
+    const sources =
+        results?.map((r) => `tmdb-${r.mediaType}-${r.id}`).join(',') ?? '';
+    const { data: existsMap } = useSWR<Record<string, boolean>>(
+        `/entry/exists?source=${sources}`,
+        fetchWithAuth,
+    );
+
     return (
         <ScrollArea className="w-full min-h-3/4 h-3/4 rounded-md border p-5 gap-2">
             {isLoading || !results || error
@@ -21,7 +30,14 @@ export default function SearchBody({
                       <Skeleton data-testid="skeleton" key={idx} />
                   ))
                 : results.map((result) => {
-                      return <SearchResult result={result} key={result.id} />;
+                      const source = `tmdb-${result.mediaType}-${result.id}`;
+                      return (
+                          <SearchResult
+                              result={result}
+                              key={result.id}
+                              inList={!!existsMap?.[source]}
+                          />
+                      );
                   })}
         </ScrollArea>
     );

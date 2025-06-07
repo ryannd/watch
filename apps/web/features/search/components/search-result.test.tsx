@@ -8,7 +8,9 @@ describe('SearchResult', () => {
             title: 'Test Title',
             mediaType: 'tv',
         } as SearchResultType;
-        const { getByText } = render(<SearchResult result={mockResult} />);
+        const { getByText } = render(
+            <SearchResult result={mockResult} inList={true} />,
+        );
         expect(getByText('Test Title')).toBeInTheDocument();
     });
 
@@ -18,7 +20,9 @@ describe('SearchResult', () => {
             description: 'Test Description',
             mediaType: 'movie',
         } as SearchResultType;
-        const { getByText } = render(<SearchResult result={mockResult} />);
+        const { getByText } = render(
+            <SearchResult result={mockResult} inList={true} />,
+        );
         expect(getByText('Test Description')).toBeInTheDocument();
     });
 
@@ -28,7 +32,9 @@ describe('SearchResult', () => {
             posterImage: 'http://example.com/poster.jpg',
             mediaType: 'movie',
         } as SearchResultType;
-        const { getByAltText } = render(<SearchResult result={mockResult} />);
+        const { getByAltText } = render(
+            <SearchResult result={mockResult} inList={true} />,
+        );
         const img = getByAltText('Test Title poster') as HTMLImageElement;
         expect(img).toBeInTheDocument();
         expect(img.src).toBe('http://example.com/poster.jpg');
@@ -39,7 +45,9 @@ describe('SearchResult', () => {
             title: 'Test Title',
             mediaType: 'anime',
         } as SearchResultType;
-        const { getByText } = render(<SearchResult result={mockResult} />);
+        const { getByText } = render(
+            <SearchResult result={mockResult} inList={true} />,
+        );
         expect(getByText('ANIME')).toBeInTheDocument();
     });
 
@@ -47,7 +55,9 @@ describe('SearchResult', () => {
         const mockResult: SearchResultType = {
             title: 'Test Title',
         } as SearchResultType;
-        const { queryByText } = render(<SearchResult result={mockResult} />);
+        const { queryByText } = render(
+            <SearchResult result={mockResult} inList={true} />,
+        );
         expect(queryByText('TV')).not.toBeInTheDocument();
         expect(queryByText('MOVIE')).not.toBeInTheDocument();
         expect(queryByText('ANIME')).not.toBeInTheDocument();

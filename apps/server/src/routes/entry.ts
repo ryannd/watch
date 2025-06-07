@@ -28,4 +28,21 @@ app.post('/create', async (c) => {
     return c.json(result);
 })
 
+app.get('/exists', async (c) => {
+    const { source } = c.req.query();
+    const user = c.get("user")
+
+    if (!user) {
+        return c.text("Unauthorized", 401);
+    }
+
+    if (!source) {
+        return c.text("Source requred", 400)
+    }
+    
+    const found = await entryService.findBySource(source, user);
+
+    return c.json(found)
+})
+
 export default app;
