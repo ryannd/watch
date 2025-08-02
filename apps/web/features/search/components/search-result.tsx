@@ -8,10 +8,10 @@ import {
 } from '@repo/ui/components/card';
 import { Badge } from '@repo/ui/components/badge';
 import { Button } from '@repo/ui/components/button';
-import { authClient } from '@/features/auth/lib/auth-client';
 import { Plus } from 'lucide-react';
-import { useSWRConfig } from 'swr';
 import fetchWithAuth from '@/lib/fetch-with-auth';
+import { useContext } from 'react';
+import { AuthContext } from '@/features/auth/context/AuthContext';
 
 interface SearchResultProps {
     result: SearchResultType;
@@ -19,6 +19,7 @@ interface SearchResultProps {
 }
 
 export default function SearchResult({ result, inList }: SearchResultProps) {
+    const { isAuthenticated } = useContext(AuthContext)
     const onAdd = async () => {
         const dto: EntryDto = {
             id: result.id.toString(),
@@ -56,7 +57,7 @@ export default function SearchResult({ result, inList }: SearchResultProps) {
                         )}
                     </CardHeader>
                 </div>
-                <CardFooter>
+                {isAuthenticated && <CardFooter>
                     {inList ? (
                         <></>
                     ) : (
@@ -64,7 +65,7 @@ export default function SearchResult({ result, inList }: SearchResultProps) {
                             <Plus />
                         </Button>
                     )}
-                </CardFooter>
+                </CardFooter>}
             </div>
         </Card>
     );
