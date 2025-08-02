@@ -17,7 +17,7 @@ export default function Page() {
         query,
     } = useSearch();
     return (
-        <div className="h-screen mx-32 flex justify-center items-center flex-col gap-12">
+        <div className="h-screen mx-8 lg:mx-32 flex justify-center items-center flex-col gap-12">
             <SearchInput
                 onQueryChange={onQueryChange}
                 query={query}
